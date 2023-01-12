@@ -63,7 +63,10 @@ function App() {
     <div className="container">
       <form
         onSubmit={handleSubmit}
-        style={{ display: "flex", flexDirection: "column" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+        }}
       >
         <input
           type="text"
@@ -84,7 +87,9 @@ function App() {
 
       <div className="result">
         <ul>
-          <li>{results}</li>
+          <li>
+            {buttonSubmit === "generate-prima" ? "baca console log" : results}
+          </li>
         </ul>
       </div>
     </div>
