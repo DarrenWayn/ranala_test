@@ -23,10 +23,30 @@ function App() {
     let prime = 2;
     while (value > 0) {
       if (isPrime(prime)) {
-        console.log(prime);
+        setResults(prime);
         value--;
       }
       prime++;
+    }
+  };
+
+  const generateSegitiga = (value) => {
+    for (let i = 1; i <= value; i++) {
+      let row = "";
+      for (let j = 1; j <= i; j++) {
+        row += j + " ";
+      }
+      console.log(row);
+      setResults(row);
+    }
+  };
+
+  const generateGanjil = (value) => {
+    let i = value;
+    while (i < 10) {
+      console.log(i);
+      i += 2;
+      setResults(i);
     }
   };
 
@@ -34,23 +54,11 @@ function App() {
     e.preventDefault();
     if (buttonSubmit === "generate-segitiga") {
       console.log("segitiga");
-      for (let i = 1; i <= value; i++) {
-        let row = "";
-        for (let j = 1; j <= i; j++) {
-          row += j + " ";
-        }
-        console.log(row);
-        setResults(row);
-      }
+      generateSegitiga(value);
       setValue("");
     } else if (buttonSubmit === "generate-ganjil") {
       console.log("ganjil");
-      let i = value;
-      while (i < 10) {
-        console.log(i);
-        i += 2;
-        setResults(i);
-      }
+      generateGanjil(value);
       setValue("");
     } else {
       console.log("prima");
@@ -88,7 +96,8 @@ function App() {
       <div className="result">
         <ul>
           <li>
-            {buttonSubmit === "generate-prima" ? "baca console log" : results}
+            {/* {buttonSubmit === "generate-prima" ? "baca console log" : results} */}
+            {results}
           </li>
         </ul>
       </div>
